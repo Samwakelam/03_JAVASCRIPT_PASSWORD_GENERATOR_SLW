@@ -78,7 +78,7 @@ Pawel also mentioned trying smaller functions rather than my one massive functio
 
 ### Checkbox and CheckboxScript
 
-I have created a passwrod generator that can:
+I have created a password generator that can:
 * Detect what your password length is.
 * Alert you if you are not within the range of numbers and adjust to the min or max    allowence
 * Detect which options you have selected and if you unselect any of these boxes by changing your mind. 
@@ -87,8 +87,10 @@ I have created a passwrod generator that can:
 
 #### DIfficulties
 
-I'm so close with having a check box functioning code. 
+(Update 02.10.2020 - 22.42) - I'm so close with having a check box functioning code. 
 the password is sat in the DEVtools under myPass1 
+
+(Update 02.10.2020 - 22.55) - I have descovered there is a general problem if there are any solutions unchecked. I have been testing the function with all checked. I need to possibly put an if else statment in the is checked section. 
 
 ![Password Generator checkbox dev tools](assets/images/screenshots/devtools-min.JPG)
 
@@ -96,7 +98,7 @@ I know that i am sending the passlen variable from the genPassLength function.
 
 I have tried every combination I can think of and changing this action breaks the code.
 
-I am so close to acheiving this. (Update 02.10.2020 - 22.42)
+I am so close to acheiving this. 
 
 ## Credits 
 
