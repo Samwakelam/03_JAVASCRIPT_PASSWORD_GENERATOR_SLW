@@ -76,6 +76,28 @@ I want to also look at using check boxes for a nicer user interface from the ale
 
 Pawel also mentioned trying smaller functions rather than my one massive function. 
 
+### Checkbox and CheckboxScript
+
+I have created a passwrod generator that can:
+* Detect what your password length is.
+* Alert you if you are not within the range of numbers and adjust to the min or max    allowence
+* Detect which options you have selected and if you unselect any of these boxes by changing your mind. 
+
+![Password Generator Checkbox](assets/images/screenshots/secondpage-min.JPG)
+
+#### DIfficulties
+
+I'm so close with having a check box functioning code. 
+the password is sat in the DEVtools under myPass1 
+
+![Password Generator checkbox dev tools](assets/images/screenshots/devtools-min.JPG)
+
+I know that i am sending the passlen variable from the genPassLength function. 
+
+I have tried every combination I can think of and changing this action breaks the code.
+
+I am so close to acheiving this. (Update 02.10.2020 - 22.42)
+
 ## Credits 
 
 Thanks need to go to: Pawel and Andy for helping me trouble shoot, undefined function and capturing my for loop respectivley. 

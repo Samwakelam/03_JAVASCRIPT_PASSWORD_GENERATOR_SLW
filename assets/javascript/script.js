@@ -59,26 +59,26 @@ function genPass () {
   /*Conditional operator*/
 
   var lowYes = (lowChoice == true)? low:[];
-var capsYes = (capsChoice== true)? caps:[];
-var numbYes = (numbChoice== true)? numb:[];
-var symbYes = (symbChoice== true)? symb:[];
-console.log(lowYes);
-console.log(capsYes);
-console.log(numbYes);
-console.log(symbYes);
+  var capsYes = (capsChoice== true)? caps:[];
+  var numbYes = (numbChoice== true)? numb:[];
+  var symbYes = (symbChoice== true)? symb:[];
+  console.log(lowYes);
+  console.log(capsYes);
+  console.log(numbYes);
+  console.log(symbYes);
 
-/*merging chosen array*/
+  /*merging chosen array*/
 
-var passArray = lowYes.concat(capsYes,numbYes,symbYes);
+  var passArray = lowYes.concat(capsYes,numbYes,symbYes);
 
-var myPass3 = [];
-for (var i = 0; i<passlen; i++){
+  var myPass3 = [];
+  for (var i = 0; i<passlen; i++){
     var passindex = Math.floor(Math.random()*passArray.length);
     console.log(passArray[passindex]);
-  myPass3.push(passArray[passindex]);
-}
+    myPass3.push(passArray[passindex]);
+  }
 
-return (myPass3.join(""));
+  return (myPass3.join(""));
 };
 
 
