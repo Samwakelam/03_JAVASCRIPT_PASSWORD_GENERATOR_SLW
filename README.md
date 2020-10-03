@@ -100,6 +100,11 @@ I have tried every combination I can think of and changing this action breaks th
 
 I am so close to acheiving this. 
 
+(Update 03.10.2020 - 10.00) - I have got it working by refining the code and better creating the inputPass function  to call the other functions as needed. 
+My difficulty now is to refine the code so that:
+   * if the user dose not follow instructions, the code runs more smoothly.
+   * if the generate button is clicked again the form resets. 
+
 ## Credits 
 
 Thanks need to go to: Pawel and Andy for helping me trouble shoot, undefined function and capturing my for loop respectivley. 
