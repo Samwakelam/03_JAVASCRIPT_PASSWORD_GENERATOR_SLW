@@ -3,85 +3,103 @@
 
 // Event Listener
 var button = document.getElementById("generate");
+// start the function input pass... 
 button.addEventListener("click",inputPass);
-button.addEventListener("click",arrayCreator);
 
-// Puts the password into the html
 
+// Generate variables
 function inputPass() {
-  console.log("button has been clicked");
-  var passActual = genPassLength();
-  var input = document.getElementById("password");
-  input.innerHTML = passActual;
-}
+  var passlen = genPassLength();
+  console.log("password length 1 = " + passlen);
+  
+  var ischecked = qtyChecked.length > 0;
+  console.log("are there boxes checked? = " + ischecked); 
+  if (ischecked == false){
+    alert("you need to check at least one option, defaults to Lowercase");
+    qtyChecked.push("low");
+  } else {
+    if (ischecked == true){
+      console.log("good to go");
+      var passArray = arrayCreator();
+      console.log("passArray = " + passArray);
+      
+      var finalPass = document.getElementById("password");
+      finalPass.innerHTML = passArray;
+    }  
+  }
+   
+};
 
-// look for the number input
+
+// create the variable for password length, passlen. 
 var passlen = "";
 function genPassLength () {   
   while (true){
-    var plength = document.querySelector("#passlength");
-    console.log("log1-" + plength.value);
+    var inputlength = document.querySelector("#passlength");
+    console.log("input length 1 = " + inputlength.value);
 
-    if (plength.value < 8) {
+    if (inputlength.value < 8) {
       alert("Your password must be at least 8 characters");
-      plength.value = 8;
-      console.log("log2-" + plength.value)
+      inputLength.value = 8;
+      console.log("input length 2 = " + inputlength.value)
       
     }else{
 
-      if (plength.value > 128) {
+      if (inputlength.value > 128) {
         alert("Your password must be less than 128 characters");
-       plength.value = 128;
-        console.log("log3-" + plength.value) 
+       inputlength.value = 128;
+        console.log("input length 3 = " + inputlength.value) 
       
       } else {
-        passlen += plength.value;
-        console.log("log4-" + passlen);
+        passlen += inputlength.value;
+        console.log("password length 2 = " + passlen);
       }
     return passlen;
     }
   }
 }; 
+//end of function
 
 
 // Which checkboxes are ticked? 
+// look for check boxes: 
+
 var qtyChecked = [];
-  // look for: 
-  
+
   // the Lowercase checkbox 
-  // var lowChoice = confirm("Do you want to use lowercase letters in your password?");
   var lowcase = document.getElementById("lowcase");
   lowcase.addEventListener("click", lowFunction);
   
   function lowFunction() {
     if (lowcase.checked == true){
       qtyChecked.push("low");
-      console.log("log5-" + qtyChecked);
+      
     } else {
       if (lowcase.checked == false){
         var a = qtyChecked.indexOf("low");
         qtyChecked.splice(a , 1);
-        console.log("log6-" + qtyChecked);
       }
     }
+    console.log("which boxes are checked? low = " + qtyChecked);
+    console.log("how many boxes are checked? low = " + qtyChecked.length);
   };
   
   // the uppercase check box 
-  // var capsChoice = confirm("Do you want to use capital letters in your password?");
+  
   var capscase = document.getElementById("capscase");
   capscase.addEventListener("click", capsFunction);
   
   function capsFunction() {
     if (capscase.checked == true){
       qtyChecked.push("caps");
-      console.log("log7-" + qtyChecked);
     } else {
       if (capscase.checked == false){
         var b = qtyChecked.indexOf("caps");
         qtyChecked.splice(b , 1);
-        console.log("log8-" + qtyChecked);
       }
     }
+    console.log("which boxes are checked? caps = " + qtyChecked);
+    console.log("how many boxes are checked? caps = " + qtyChecked.length);
   };
   
   // the number checkbox
@@ -92,14 +110,14 @@ var qtyChecked = [];
   function numbFunction() {
     if (numbcase.checked == true){
       qtyChecked.push("numb");
-      console.log("log9-" + qtyChecked);
     } else {
       if (numbcase.checked == false){
         var c = qtyChecked.indexOf("numb");
         qtyChecked.splice(c , 1);
-        console.log("log10-" + qtyChecked);
       }
     }
+    console.log("which boxes are checked? number = " + qtyChecked);
+    console.log("how many boxes are checked? number = " + qtyChecked.length);
   };
   
   // the symbols check box 
@@ -110,17 +128,19 @@ var qtyChecked = [];
   function symbFunction() {
     if (symbcase.checked == true){
       qtyChecked.push("symb");
-      console.log("log11-" + qtyChecked);
     } else {
       if (symbcase.checked == false){
         var d = qtyChecked.indexOf("symb");
         qtyChecked.splice(d , 1);
-        console.log("log12-" + qtyChecked);
       }
     }
+    console.log("which boxes are checked? symbol = " + qtyChecked);
+    console.log("how many boxes are checked? symbol = " + qtyChecked.length);
   };
-  
-  
+
+// end of search 
+
+// inputs from checkboxes
   var options = {
     low:"abcdefghijklmnopqrstuvwxyz",
     caps:"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -128,77 +148,76 @@ var qtyChecked = [];
     symb:"£$%^&*()@#?!"
   }
   
-  /*Conditional operator*/
+  var passArray = "";
   function arrayCreator() {
+    /*Conditional operator*/
     var lowYes = (lowcase.checked == true)? options.low:[];
     var capsYes = (capscase.checked == true)? options.caps:[];
     var numbYes = (numbcase.checked == true)? options.numb:[];
     var symbYes = (symbcase.checked == true)? options.symb:[];
-    console.log("log13-" + lowYes);
+    console.log("low array = " + lowYes);
     console.log(lowYes.length);
-    console.log(capsYes);
+    console.log("caps array = " + capsYes);
     console.log(capsYes.length);
-    console.log(numbYes);
+    console.log("number array = " + numbYes);
     console.log(numbYes.length);
-    console.log(symbYes);
+    console.log("symbol array = " + symbYes);
     console.log(symbYes.length);
   
     // random sort strings - pass length divided by the number of charater types
-    console.log("log14-" + (Math.round(passlen/qtyChecked.length)));
+    console.log("Produce this many units of each charater = " + (Math.round(passlen/qtyChecked.length)));
     var divide = (Math.floor(passlen/qtyChecked.length));
-    console.log("log15-" + divide);
+    console.log("Check the divide variable = "  + divide);
 
-    // even split of each type of character
+    // even split of each type of character - if checked
     var charlow = "";
-    for (var i = 0; i<divide; i++){
-      var lowindex = Math.floor(Math.random()*lowYes.length);
-      console.log("log16-" + lowYes[lowindex]);
-      charlow += lowYes[lowindex];
-    }
-    console.log("log16a-" + charlow);
+    if (lowYes.length > 0) {
+      for (var i = 0; i<divide; i++){
+        var lowindex = Math.floor(Math.random()*lowYes.length);
+        console.log("low index result = " + lowYes[lowindex]);
+        charlow += lowYes[lowindex];
+      }
+      console.log("low string result = " + charlow);
+    };
 
     var charcaps = "";
-    for (var i = 0; i<divide; i++){
-      var capsindex = Math.floor(Math.random()*capsYes.length);
-      console.log("log17-" + capsYes[capsindex]);
-      charcaps += capsYes[capsindex];
-    }
-    console.log("log18-" + charcaps);
+    if (capsYes.length > 0) {
+      for (var i = 0; i<divide; i++){
+        var capsindex = Math.floor(Math.random()*capsYes.length);
+        console.log("caps index result = " + capsYes[capsindex]);
+        charcaps += capsYes[capsindex];
+      }
+      console.log("caps string = " + charcaps);
+    };
 
     var charnumb = "";
-    for (var i = 0; i<divide; i++){
-      var numbindex = Math.floor(Math.random()*numbYes.length);
-      console.log("log19-" + numbYes[numbindex]);
-      charnumb += numbYes[numbindex];
-    }
-    console.log("log20-" + charnumb);
+    if (numbYes.length > 0) {
+      for (var i = 0; i<divide; i++){
+        var numbindex = Math.floor(Math.random()*numbYes.length);
+        console.log("number index result = " + numbYes[numbindex]);
+        charnumb += numbYes[numbindex];
+      }
+      console.log("number string = " + charnumb);
+    };
 
     var charsymb = "";
-    for (var i = 0; i<divide; i++){
-      var symbindex = Math.floor(Math.random()*symbYes.length);
-      console.log("log21-" + symbYes[symbindex]);
-      charsymb += symbYes[symbindex];
-    }
-    console.log("log21a-" + charsymb);
+    if (symbYes.length > 0) {
+      for (var i = 0; i<divide; i++){
+        var symbindex = Math.floor(Math.random()*symbYes.length);
+        console.log("symbol index result = " + symbYes[symbindex]);
+        charsymb += symbYes[symbindex];
+      }
+      console.log("symbol string = " + charsymb);
+    };
+    // end of action 
     
 
     // Creating the final string. 
     var string = charlow + charcaps + charnumb + charsymb;
-    console.log ("log22-" + passlen);
-    console.log(qtyChecked.length);
-    console.log(string);
-    console.log(shuffle(string));
-
-    // rethink this part, it randomly picks from the small collection gathered. 
-
-    // var myPass1 = "";
-    // for (var i =0; i<passlen; i++){
-    //   var passindex = Math.floor(Math.random()*string.length);
-    //   console.log("log23-" + string[passindex]);
-    //   myPass1 += string[passindex];
-    // }
-    // console.log("log24-" + myPass1);
-    // return (myPass1);
+    console.log ("Reminder of pass length = " + passlen);
+    console.log("Reminder of qty checked = " + qtyChecked.length);
+    console.log("check the variable 'string' = " + string);
+    console.log("Shuffel the string = " + shuffle(string));
 
     /* Shuffle the given string
        ref: Keshav, J.(2020). How to shuffle characters of a string in JavaScript. {}CodeSpeedy. https://www.codespeedy.com/shuffle-characters-of-a-string-in-javascript/ */
@@ -224,25 +243,28 @@ var qtyChecked = [];
       
       string = shuffle(string);
       
-      console.log("hopefully shuffled - " + string);
-      console.log("Log23 - " + string.length);
+      console.log("'string' length = " + string.length);
       
 
       if(string.length<passlen){
         var remainder = (passlen - string.length);
-        console.log("Log24 - " + remainder);
+        console.log("characters needed = " + remainder);
 
-        var myPass1 =string + "";
+        var myPass1 = string + "";
         var addToString = lowYes + capsYes + numbYes + symbYes;
-          console.log("Log24a - " + addToString);
+          console.log("characters chosen from = " + addToString);
+
         for (var i = 0; i<remainder; i++){
           var remindex = Math.floor(Math.random()*addToString.length);
-            console.log("log24b - " + addToString[remindex]);
+            console.log("Character chosen = " + addToString[remindex]);
           myPass1 += addToString[remindex];
-            console.log("myPass1 - " + myPass1);
-        }
-      } 
-      return (myPass1);
+            console.log("final string 1 = " + myPass1);
+        } 
+      } else {
+        var myPass1 = string + "";
+        console.log("final string 2 = " + myPass1);
+      }
+      return passArray += myPass1;
   };
   
 
