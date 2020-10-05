@@ -4,22 +4,40 @@
 // Event Listener
 var button = document.getElementById("generate");
 // start the function input pass... 
+var passlen = 0;
+var qtyChecked = [];
+var passArray = "";
+var options = {
+  low:"abcdefghijklmnopqrstuvwxyz",
+  caps:"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  numb:"0123456789",
+  symb:"£$%^&*()@#?!"
+}
+
+button.addEventListener("click", clearPassLen);
 button.addEventListener("click",inputPass);
 
+// why does this not clear the variable ??
+function clearPassLen (){
+  console.log("password cleared, length = " + passlen);
+  passlen = 0;
+  passArray = "";
+};
 
 // Generate variables
 function inputPass() {
-  var passlen = genPassLength();
-  console.log("password length 1 = " + passlen);
-  
+    
   var ischecked = qtyChecked.length > 0;
   console.log("are there boxes checked? = " + ischecked); 
   if (ischecked == false){
     alert("you need to check at least one option, defaults to Lowercase");
-    qtyChecked.push("low");
+    passlen = 8;
+  console.log("password length 1 = " + passlen);
   } else {
     if (ischecked == true){
       console.log("good to go");
+      var passlen = genPassLength();
+      console.log("password length 2 = " + passlen);
       var passArray = arrayCreator();
       console.log("passArray = " + passArray);
       
@@ -32,7 +50,7 @@ function inputPass() {
 
 
 // create the variable for password length, passlen. 
-var passlen = "";
+
 function genPassLength () {   
   while (true){
     var inputlength = document.querySelector("#passlength");
@@ -63,8 +81,6 @@ function genPassLength () {
 
 // Which checkboxes are ticked? 
 // look for check boxes: 
-
-var qtyChecked = [];
 
   // the Lowercase checkbox 
   var lowcase = document.getElementById("lowcase");
@@ -141,14 +157,7 @@ var qtyChecked = [];
 // end of search 
 
 // inputs from checkboxes
-  var options = {
-    low:"abcdefghijklmnopqrstuvwxyz",
-    caps:"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    numb:"0123456789",
-    symb:"£$%^&*()@#?!"
-  }
   
-  var passArray = "";
   function arrayCreator() {
     /*Conditional operator*/
     var lowYes = (lowcase.checked == true)? options.low:[];
