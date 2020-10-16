@@ -29,9 +29,13 @@ CSS styling
 
 My project will have a number of .HTML and .JS files depending on my progress through the project.
 
-To get the development to run on the basic method, you need only run the index.html and follow the onscreen alerted instructions generated after you click the button. this will link through to script.js
+To get the development to run on the basic method, you need only run the index.html and follow the onscreen alerted instructions generated after you click the button. This will link through to script.js
+
+This link for the first generator is: [Basic Generator](https://samwakelam.github.io/03_JAVASCRIPT_PASSWORD_GENERATOR_SLW/).
 
 Further parings are listed below: 
+
+The Generator with improved UI can be accessed here: [Checkbox Generator](https://samwakelam.github.io/03_JAVASCRIPT_PASSWORD_GENERATOR_SLW/checkbox.html).
 
 
 ## Usage
