@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/checkBoxStyle.css" />
-    
-  </head>
-  <body>
-    <div class="wrapper">
 
-      <header>
-        <h1>Password Generator</h1>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/checkBoxStyle.css" />
 
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
+</head>
 
-        <p>Specify how many characters you want in your password between 8 and 128.</p>
-        <lable for="passlength">Password Length:</lable>
-        <input type="number" id="passlength" name="passlength" max="128" min="8" required maxlength="3" size="5" placeholder="8" form="check"/>
+<body>
+  <div class="wrapper">
 
-        <p>Select at least one character type from the list below. You can choose 4.</p>
+    <header>
+      <h1>Password Generator</h1>
+    </header>
 
-        <form id="check">
-            <div class="checkbox">
-            <input type="checkbox" id="lowcase" name="casetype" value="checked"/>
-            <Label for="lowcase">Lowercase Characters:</Label>
-            </div><br/>
-
-            <div class="checkbox">
-            <input type="checkbox" id="capscase" name="casetype" value="checked"/>
-            <Label for="capscase">Uppercase Characters:</Label>
-            </div><br/>
-
-            <div class="checkbox">
-            <input type="checkbox" id="numbcase" name="casetype" value="checked"/>
-            <Label for="numbcase">Numerical Characters:</Label>
-            </div><br/>
-
-            <div class="checkbox">
-            <input type="checkbox" id="symbcase" name="casetype" value="checked"/>
-            <Label for="symbcase">Special Characters:</Label>
-            </div><br/>
-        </form>
-
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>Generate a Password</h2>
       </div>
 
+      <p>Specify how many characters you want in your password between 8 and 128.</p>
+      <form>
+        <lable for="passlength">Password Length:</lable>
+        <input type="number" id="passlength" name="passlength" max="128" min="8" required  
+          placeholder="8" form="check" />
+      </form>
+      <p>Select at least one character type from the list below. You can choose 4.</p>
+
+      <form id="check">
+        <div class="checkbox">
+          <input type="checkbox" id="lowcase" name="casetype" value="checked" />
+          <Label for="lowcase">Lowercase Characters:</Label>
+        </div><br />
+
+        <div class="checkbox">
+          <input type="checkbox" id="capscase" name="casetype" value="checked" />
+          <Label for="capscase">Uppercase Characters:</Label>
+        </div><br />
+
+        <div class="checkbox">
+          <input type="checkbox" id="numbcase" name="casetype" value="checked" />
+          <Label for="numbcase">Numerical Characters:</Label>
+        </div><br />
+
+        <div class="checkbox">
+          <input type="checkbox" id="symbcase" name="casetype" value="checked" />
+          <Label for="symbcase">Special Characters:</Label>
+        </div><br />
+      </form>
+
+      <div class="card-body">
+        <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
+      </div>
+
+      <div class="card-footer">
+        <button id="generate" class="btn">Generate Password</button>
+      </div>
     </div>
 
-    <script src="assets/javascript/checkBoxScript.js"></script>
+  </div>
 
-  </body>
+  <script src="assets/javascript/checkBoxScript.js"></script>
+
+</body>
+
 </html>
